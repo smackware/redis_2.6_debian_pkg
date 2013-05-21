@@ -1,0 +1,13 @@
+#!/usr/bin/make -f
+
+DESTDIR=$(PWD)/debian/tmp
+override_dh_auto_install:
+	mkdir -p $(DESTDIR)/etc/redis
+	mkdir -p $(DESTDIR)/etc/init.d
+	install redis.conf $(DESTDIR)/etc/redis/6379.conf
+	install utils/redis_init_script $(DESTDIR)/etc/init.d
+	$(MAKE) PREFIX=$(DESTDIR)/usr install
+%:
+	dh $@
+#all:
+	#include /etc/redis/redis.conf

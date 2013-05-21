@@ -1,0 +1,5 @@
+redis (2:2.6.13-1build1) precise; urgency=low
+
+  * Initial package 
+
+ -- Lital Natan <litaln@everything.me>  Fri, 02 Dec 2011 21:18:25 -0700
