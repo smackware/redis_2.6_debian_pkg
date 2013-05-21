@@ -3,9 +3,9 @@
 DESTDIR=$(PWD)/debian/tmp
 override_dh_auto_install:
 	mkdir -p $(DESTDIR)/etc/redis
-	mkdir -p $(DESTDIR)/etc/init.d
-	install redis.conf $(DESTDIR)/etc/redis/6379.conf
-	install utils/redis_init_script $(DESTDIR)/etc/init.d
+	mkdir -p $(DESTDIR)/etc/init
+	install redis.conf $(DESTDIR)/etc/redis/redis.conf
+	install $(PWD)/debian/upstart.conf $(DESTDIR)/etc/init/redis.conf
 	$(MAKE) PREFIX=$(DESTDIR)/usr install
 %:
 	dh $@
