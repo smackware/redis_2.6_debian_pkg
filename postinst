@@ -1,0 +1,8 @@
+#!/bin/bash
+
+id redis > /dev/null 2>&1 || useradd -c "redis server,,," -r -s/bin/false -d/var/lib/redis redis
+
+mkdir -p /var/lib/redis /var/log/redis
+chown -R redis:redis /var/lib/redis
+chown -R redis:redis /var/log/redis
+chown -R redis:redis /etc/redis/redis.conf
